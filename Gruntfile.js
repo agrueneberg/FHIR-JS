@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         browserify: {
-            cgds: {
+            fhir: {
                 src: "lib/<%= pkg.name %>.js",
                 dest: "dist/<%= pkg.name %>.js",
                 options: {
