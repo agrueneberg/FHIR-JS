@@ -1,0 +1,28 @@
+{
+    "name": "fhir",
+    "version": "0.0.0",
+    "description": "A module for interacting with a FHIR endpoint.",
+    "keywords": ["fhir", "hl7"],
+    "bugs": "https://github.com/agrueneberg/FHIR-JS/issues",
+    "license": "MIT",
+    "author": "Alexander Grüneberg <alexander.grueneberg@googlemail.com>",
+    "main": "./lib/fhir.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/agrueneberg/FHIR-JS.git"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/mocha"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.4",
+        "grunt-browserify": "~2.0.7",
+        "grunt-contrib-uglify": "~0.4.0",
+        "browserify": "~3.41.0",
+        "mocha": "~1.18.2",
+        "expect.js": "~0.3.1"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    }
+}
