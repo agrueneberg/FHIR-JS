@@ -64,12 +64,19 @@ FHIR = function (url) {
     if (this.url.indexOf("/", this.url.length - 1) !== -1) {
         this.url = this.url.substring(0, this.url.length - 1);
     }
+ // Prepare credentials.
+    this.auth = null;
+};
+
+FHIR.prototype.credentials = function (username, password) {
+    this.auth = username + ":" + password;
 };
 
 FHIR.prototype.read = function (type, id, callback) {
     var options;
     options = url.parse(this.url + "/" + type + "/" + id);
     options.method = "GET";
+    if (this.auth !== null) options.auth = this.auth;
     request(options, callback);
 };
 
@@ -77,6 +84,7 @@ FHIR.prototype.vread = function (type, id, vid, callback) {
     var options;
     options = url.parse(this.url + "/" + type + "/" + id + "/_history/" + vid);
     options.method = "GET";
+    if (this.auth !== null) options.auth = this.auth;
     request(options, callback);
 };
 
@@ -87,6 +95,7 @@ FHIR.prototype.update = function (type, id, body, callback) {
     options.headers = {
         "Content-Type": "application/json"
     };
+    if (this.auth !== null) options.auth = this.auth;
     request(options, JSON.stringify(body), callback);
 };
 
@@ -94,6 +103,7 @@ FHIR.prototype.delete = function (type, id, callback) {
     var options;
     options = url.parse(this.url + "/" + type + "/" + id);
     options.method = "DELETE";
+    if (this.auth !== null) options.auth = this.auth;
     request(options, callback);
 };
 
@@ -104,6 +114,7 @@ FHIR.prototype.create = function (type, body, callback) {
     options.headers = {
         "Content-Type": "application/json"
     };
+    if (this.auth !== null) options.auth = this.auth;
     request(options, JSON.stringify(body), callback);
 };
 
@@ -128,6 +139,7 @@ FHIR.prototype.search = function (type, params, callback) {
         options.path = options.path + param + "=" + params[param];
     });
     options.method = "GET";
+    if (this.auth !== null) options.auth = this.auth;
     request(options, callback);
 };
 
@@ -149,6 +161,7 @@ FHIR.prototype.history = function (type, id, callback) {
         options = url.parse(this.url + "/_history");
     }
     options.method = "GET";
+    if (this.auth !== null) options.auth = this.auth;
     request(options, callback);
 };
 
@@ -4323,8 +4336,8 @@ function indexOf (xs, x) {
   return -1;
 }
 
-}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":19,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
+}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./index.js":19,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6340,5 +6353,5 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":27,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
+}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":27,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
