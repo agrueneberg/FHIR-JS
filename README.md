@@ -34,6 +34,10 @@ Usage
             url: "https://fhir.example.com",
         });
 
+4. Provide credentials
+
+        fhir.credentials("username", "password");
+
 Methods
 -------
 
@@ -93,3 +97,10 @@ Search the resource type based on some filter criteria.
 1. `[type]`
 2. `params`
 3. `callback`
+
+### credentials
+Set FHIR credentials for requests.
+
+###### Parameters
+1. `username`
+2. `password`
