@@ -33,3 +33,63 @@ Usage
         var fhir = new FHIR({
             url: "https://fhir.example.com",
         });
+
+Methods
+-------
+
+### read
+Read the current state of a resource.
+
+###### Parameters
+1. `type`
+2. `id`
+3. `callback`
+
+### vread
+Read the state of a specific version of a resource.
+
+###### Parameters
+1. `type`
+2. `id`
+3. `vid`
+4. `callback`
+
+### update
+Update an existing resource by its id (or create it if it is new).
+
+###### Parameters
+1. `type`
+2. `id`
+3. `doc`
+4. `callback`
+
+### delete
+Delete a resource.
+
+###### Parameters
+1. `type`
+2. `id`
+3. `callback`
+
+### history
+Retrieve the update history for a particular resource.
+
+###### Parameters
+1. `[type]`
+2. `[id]`
+3. `callback`
+
+### create
+Create a new resource with a server assigned ID.
+
+###### Parameters
+1. `type`
+2. `callback`
+
+### search
+Search the resource type based on some filter criteria.
+
+###### Parameters
+1. `[type]`
+2. `params`
+3. `callback`
