@@ -165,6 +165,25 @@ FHIR.prototype.history = function (type, id, callback) {
     request(options, callback);
 };
 
+FHIR.prototype.govread = function (type, id, callback) {
+    var options;
+    options = url.parse(this.url + "/.well-known/governance?resource=" + encodeURIComponent("/" + type + "/" + id));
+    options.method = "GET";
+    if (this.auth !== null) options.auth = this.auth;
+    request(options, callback);
+};
+
+FHIR.prototype.govwrite = function (type, id, body, callback) {
+    var options;
+    options = url.parse(this.url + "/.well-known/governance?resource=" + encodeURIComponent("/" + type + "/" + id));
+    options.method = "PUT";
+    options.headers = {
+        "Content-Type": "application/json"
+    };
+    if (this.auth !== null) options.auth = this.auth;
+    request(options, JSON.stringify(body), callback);
+};
+
 module.exports = FHIR;
 
 },{"http":7,"https":11,"url":26}],"fhir":[function(require,module,exports){
@@ -4336,8 +4355,8 @@ function indexOf (xs, x) {
   return -1;
 }
 
-}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":19,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
+}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./index.js":19,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6353,5 +6372,5 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":27,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
+}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":27,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
