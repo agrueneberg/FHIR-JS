@@ -22,6 +22,9 @@ request = function (options, body, callback) {
         res.on("end", function () {
             var path;
             if ([200, 204].indexOf(res.statusCode) !== -1) {
+                if (res.headers["content-type"] === "application/json") {
+                    body = JSON.parse(body);
+                }
                 callback(null, body);
             } else if (res.statusCode === 201) {
                 path = res.headers.location.split("/");
