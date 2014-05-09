@@ -22,7 +22,7 @@ request = function (options, body, callback) {
         res.on("end", function () {
             var path;
             if ([200, 204].indexOf(res.statusCode) !== -1) {
-                if (res.headers["content-type"].indexOf("application/json") === 0) {
+                if (res.headers.hasOwnProperty("content-type") === true && res.headers["content-type"].indexOf("application/json") === 0) {
                     body = JSON.parse(body);
                 }
                 callback(null, body);
@@ -4358,8 +4358,8 @@ function indexOf (xs, x) {
   return -1;
 }
 
-}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":19,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
+}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./index.js":19,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"buffer":3,"events":6,"inherits":12,"process/browser.js":20,"string_decoder":25}],23:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6375,5 +6375,5 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":27,"/home/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
+}).call(this,require("/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":27,"/Users/agrueneberg/Dropbox/Projects/GitHub/agrueneberg/FHIR-JS/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":13,"inherits":12}]},{},["yjyXqN"]);
