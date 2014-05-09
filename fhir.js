@@ -22,7 +22,7 @@ request = function (options, body, callback) {
         res.on("end", function () {
             var path;
             if ([200, 204].indexOf(res.statusCode) !== -1) {
-                if (res.headers["content-type"] === "application/json") {
+                if (res.headers["content-type"].indexOf("application/json") === 0) {
                     body = JSON.parse(body);
                 }
                 callback(null, body);
